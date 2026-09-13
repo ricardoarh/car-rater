@@ -1,0 +1,36 @@
+.confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.confirm__title {
+  font: var(--t-h2);
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.confirm__body {
+  font: var(--t-body);
+  color: var(--text-soft);
+}
+
+.confirm__phrase {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font: var(--t-small);
+  color: var(--muted);
+}
+
+.confirm__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* The dialog draws its own heading, so hide the Sheet's */
+.sheet--dialog .sheet__title {
+  display: none;
+}

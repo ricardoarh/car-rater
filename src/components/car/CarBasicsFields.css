@@ -1,0 +1,41 @@
+/*
+ * Two-column rows for the factual fields.
+ * Year is deliberately narrower than Transmission: four digits never need half
+ * the screen, and the segmented control needs the room for two labels.
+ */
+.basics-row {
+  display: grid;
+  gap: 12px;
+  align-items: start;
+}
+
+.basics-row--year {
+  grid-template-columns: minmax(92px, 0.52fr) minmax(0, 1fr);
+}
+
+.basics-row--money {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* The compact segmented control lines up with the input beside it */
+.basics-row--year .segmented__item {
+  min-height: 52px;
+}
+
+.basics-row .field__hint {
+  margin-top: -2px;
+}
+
+/* Very narrow phones: stacking beats squeezing */
+@media (max-width: 339px) {
+  .basics-row--year,
+  .basics-row--money {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 620px) {
+  .basics-row--year {
+    grid-template-columns: minmax(120px, 0.4fr) minmax(0, 1fr);
+  }
+}

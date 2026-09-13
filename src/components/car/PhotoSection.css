@@ -1,0 +1,126 @@
+.photos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.photos__starter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.photos__starter-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  min-height: 148px;
+  padding: 16px 12px;
+  border-radius: var(--r-md);
+  background: var(--surface-muted);
+  color: var(--primary);
+  font: 650 14px/1.3 var(--font);
+  transition:
+    background-color var(--dur) var(--ease),
+    transform 110ms var(--ease);
+}
+
+.photos__starter-tile--alt {
+  background: var(--bg-tint);
+  color: var(--text-soft);
+}
+
+.photos__starter-tile:active {
+  transform: scale(0.985);
+}
+
+.photos__starter-tile small {
+  display: block;
+  font: 400 12px/1.3 var(--font);
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.photos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(102px, 1fr));
+  gap: 10px;
+}
+
+.photo-tile {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: var(--surface-muted);
+  box-shadow: var(--shadow-xs);
+  transition: transform 110ms var(--ease);
+}
+
+.photo-tile:active {
+  transform: scale(0.975);
+}
+
+.photo-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-tile__loading {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, var(--surface-muted), var(--bg-tint), var(--surface-muted));
+  background-size: 200% 100%;
+  animation: shimmer 1.3s infinite linear;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.photo-tile__cover {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: rgba(15, 21, 24, 0.72);
+  color: #fff;
+  font: var(--t-tiny);
+  padding: 3px 7px;
+  border-radius: var(--r-pill);
+}
+
+.photo-tile__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 14px 7px 5px;
+  background: linear-gradient(transparent, rgba(15, 21, 24, 0.76));
+  color: #fff;
+  font: 500 11px/1.25 var(--font);
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.photos__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.photos__actions .btn {
+  flex: 1 1 auto;
+}
+
+.photos__count {
+  font: var(--t-small);
+  margin-top: -2px;
+}

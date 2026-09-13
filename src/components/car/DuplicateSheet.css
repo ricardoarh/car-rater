@@ -1,0 +1,128 @@
+.duplicate {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.duplicate__helper {
+  font: 400 15px/1.45 var(--font);
+  color: var(--text-soft);
+}
+
+.duplicate__source {
+  font: var(--t-small);
+  color: var(--muted);
+  margin-top: -6px;
+}
+
+.duplicate__options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.duplicate__options-title {
+  font: 700 13px/1.2 var(--font);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+/*
+ * One per line rather than the two-column grid the feature checklist uses:
+ * these five need a line of explanation each, and a bottom sheet has the width
+ * for it. The tick box, the selected colour and the pressed state are the same
+ * vocabulary, so it still reads as the app's checklist.
+ */
+.duplicate-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 56px;
+  padding: 9px 13px;
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--text-soft);
+  box-shadow: inset 0 0 0 1.5px var(--border);
+  text-align: left;
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    transform 110ms var(--ease);
+}
+
+.duplicate-option:active {
+  transform: scale(0.99);
+}
+
+.duplicate-option.is-on {
+  background: var(--yes-bg);
+  color: var(--yes-ink);
+  box-shadow: inset 0 0 0 1.5px var(--yes-border);
+}
+
+.duplicate-option:disabled {
+  opacity: 0.55;
+}
+
+.duplicate-option__tick {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 19px;
+  height: 19px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1.5px var(--border-strong);
+  color: var(--yes-ink);
+  background: var(--surface);
+}
+
+.duplicate-option.is-on .duplicate-option__tick {
+  background: var(--yes-bg-strong);
+  box-shadow: inset 0 0 0 1.5px var(--yes-border);
+}
+
+.duplicate-option__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.duplicate-option__label {
+  font: 600 14.5px/1.25 var(--font);
+  letter-spacing: -0.008em;
+}
+
+.duplicate-option.is-on .duplicate-option__label {
+  font-weight: 700;
+}
+
+.duplicate-option__hint {
+  font: 400 12.5px/1.3 var(--font);
+  color: var(--muted);
+}
+
+.duplicate-option.is-on .duplicate-option__hint {
+  color: var(--yes-ink);
+  opacity: 0.78;
+}
+
+.duplicate__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .duplicate-option {
+    transition: none;
+  }
+  .duplicate-option:active {
+    transform: none;
+  }
+}

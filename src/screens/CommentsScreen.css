@@ -1,0 +1,19 @@
+.comments__nudge {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 18px;
+  font: var(--t-small);
+  color: var(--muted);
+}
+
+.comments__nudge span {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.comments__autosave {
+  text-align: center;
+  font: var(--t-small);
+  margin-top: 10px;
+}

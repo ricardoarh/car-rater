@@ -1,0 +1,107 @@
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  /* Fluid defaults; the media queries below scale them with the screen. */
+  --star-size: 21px;
+  --star-hit: 28px;
+}
+
+.stars__star {
+  display: grid;
+  place-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 0;
+  transition: transform 130ms var(--ease);
+}
+
+.stars__star svg {
+  display: block;
+  width: var(--star-size);
+  height: var(--star-size);
+}
+
+/*
+ * Interactive stars keep a full 44px-tall touch target at every width; only
+ * their horizontal footprint flexes, so category labels are never squeezed
+ * off the line on a small phone.
+ */
+.stars:not(.stars--readonly) .stars__star {
+  min-width: var(--star-hit);
+  min-height: 44px;
+  cursor: pointer;
+}
+
+@media (min-width: 360px) {
+  .stars {
+    --star-size: 22px;
+    --star-hit: 30px;
+  }
+}
+
+@media (min-width: 400px) {
+  .stars {
+    --star-size: 25px;
+    --star-hit: 34px;
+  }
+}
+
+@media (min-width: 440px) {
+  .stars {
+    --star-size: 27px;
+    --star-hit: 38px;
+  }
+}
+
+/* Explicit size variants win over the fluid defaults. */
+.stars--sm,
+.stars--sm.stars--readonly {
+  --star-size: 16px;
+  --star-hit: 30px;
+}
+
+.stars--lg {
+  --star-size: 29px;
+  --star-hit: 40px;
+}
+
+.stars--readonly .stars__star {
+  min-width: 0;
+  min-height: 0;
+}
+
+.stars:not(.stars--readonly) .stars__star:active {
+  transform: scale(0.88);
+}
+
+.stars:not(.stars--readonly) .stars__star.is-on {
+  animation: star-pop 240ms var(--ease);
+}
+
+@keyframes star-pop {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.22);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stars__star,
+  .stars__star.is-on {
+    animation: none !important;
+    transition: none;
+  }
+}
+
+.stars__star:focus-visible {
+  outline: 2.5px solid var(--primary);
+  outline-offset: -4px;
+  border-radius: 10px;
+}

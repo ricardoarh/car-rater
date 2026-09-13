@@ -1,0 +1,141 @@
+.ratings__list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.rating-row {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+  padding: 10px 6px 10px 10px;
+  min-height: 68px;
+}
+
+.rating-row__icon {
+  display: grid;
+  place-items: center;
+  line-height: 0;
+}
+
+.rating-row__label {
+  font: 700 14.5px/1.28 var(--font);
+  letter-spacing: -0.018em;
+  color: var(--text);
+  text-align: left;
+  min-width: 0;
+  /* Fills the row's height so the tap target clears 44px */
+  padding: 13px 4px 13px 0;
+  margin: -13px 0;
+  border-radius: var(--r-xs);
+}
+
+/* The info glyph flows with the text, so it never gets pushed to its own line */
+.rating-row__info {
+  display: inline;
+  vertical-align: -2px;
+  margin-left: 4px;
+  color: var(--muted-light);
+}
+
+.rating-row__label:hover .rating-row__info {
+  color: var(--primary);
+}
+
+.rating-row__stars {
+  justify-self: end;
+}
+
+.ratings__summary {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 18px;
+  font: var(--t-small);
+  color: var(--muted);
+  text-align: center;
+}
+
+.ratings__summary-score {
+  font: 700 26px/1 var(--font-num);
+  color: var(--text);
+}
+
+.ratings__summary-label {
+  font: var(--t-small);
+  color: var(--muted);
+}
+
+.rating-info__helper {
+  font: 600 16px/1.4 var(--font);
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.rating-info__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rating-info__list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--text-soft);
+  font: var(--t-body);
+}
+
+.rating-info__list li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0.55;
+}
+
+/* Very narrow phones: drop the info glyph — the whole label still opens the
+   explainer — and tighten everything a notch so labels stay on one line. */
+@media (max-width: 359px) {
+  .rating-row {
+    grid-template-columns: 22px minmax(0, 1fr) auto;
+    gap: 6px;
+    padding: 10px 4px 10px 8px;
+  }
+  .rating-row__label {
+    font-size: 13.6px;
+  }
+  .rating-row__info {
+    display: none;
+  }
+}
+
+@media (min-width: 400px) {
+  .rating-row {
+    grid-template-columns: 26px minmax(0, 1fr) auto;
+    gap: 10px;
+    padding-left: 12px;
+  }
+  .rating-row__label {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 440px) {
+  .rating-row {
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+    gap: 12px;
+    padding-left: 14px;
+  }
+  .rating-row__label {
+    font-size: 15.5px;
+  }
+}

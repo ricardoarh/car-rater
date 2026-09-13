@@ -1,0 +1,30 @@
+.edit-car__block {
+  margin-top: 26px;
+}
+
+.edit-car__block:first-of-type {
+  margin-top: 6px;
+}
+
+.edit-car__block .section-title {
+  margin-bottom: 12px;
+}
+
+.edit-car__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* The two-column rows live inside CarBasicsFields, so this stays a column. */
+.edit-car__photos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.edit-car__hint {
+  font: var(--t-small);
+  color: var(--muted);
+  margin: -8px 0 12px;
+}

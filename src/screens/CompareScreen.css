@@ -1,0 +1,328 @@
+.compare__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: calc(var(--safe-top) + 16px) 0 14px;
+}
+
+.compare__title {
+  font: var(--t-display);
+  font-size: 32px;
+  letter-spacing: -0.032em;
+}
+
+.compare__subtitle {
+  font: 400 15px/1.4 var(--font);
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.compare__empty {
+  text-align: center;
+  padding: 46px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.compare__scroller {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 calc(var(--gutter) * -1);
+  padding: 0 var(--gutter);
+  scrollbar-width: thin;
+}
+
+.compare__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  /* Row label stays readable; each car gets a sensible minimum */
+  min-width: calc(104px + var(--cols) * 86px);
+}
+
+.compare__table th,
+.compare__table td {
+  padding: 11px 6px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.compare__table thead th {
+  border-bottom: none;
+  padding-bottom: 10px;
+  vertical-align: bottom;
+}
+
+.compare__table tbody th[scope='row'] {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  width: 104px;
+  min-width: 104px;
+  text-align: left;
+  font: 600 12.5px/1.25 var(--font);
+  color: var(--text-soft);
+  background: var(--bg);
+  padding-left: 2px;
+  padding-right: 10px;
+}
+
+.compare__table tbody td {
+  font: 650 15px/1.2 var(--font-num);
+  color: var(--text);
+  background: var(--surface);
+  font-variant-numeric: tabular-nums;
+  /* Transparent side borders keep each value reading as its own cell, so two
+     adjacent winners never merge into one block. */
+  border-left: 4px solid var(--bg);
+  border-right: 4px solid var(--bg);
+  background-clip: padding-box;
+  border-radius: var(--r-xs);
+}
+
+.compare__table td.is-best {
+  background: var(--primary-soft);
+  color: var(--primary-ink);
+  font-weight: 800;
+  box-shadow: inset 0 0 0 1.5px rgba(23, 78, 69, 0.16);
+}
+
+.compare__car {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.compare__car .car-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.compare__car-name {
+  font: 650 12.5px/1.2 var(--font);
+  color: var(--text);
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.compare__flag {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* Facts read as information, not as scores: lighter weight, never highlighted */
+.compare__fact td {
+  font-weight: 550;
+  color: var(--text-soft);
+}
+
+.compare__divider th,
+.compare__divider td {
+  padding-top: 16px;
+}
+
+.compare__sub {
+  font: 500 11px/1 var(--font-num);
+  color: var(--muted);
+}
+
+.compare__yes-flag {
+  font: 600 12.5px/1 var(--font);
+  color: var(--no-ink);
+}
+
+.compare__overall th,
+.compare__overall td {
+  border-bottom: none;
+  padding-top: 14px;
+  background: transparent;
+}
+
+.compare__overall th[scope='row'] {
+  font: 800 15px/1.2 var(--font);
+  color: var(--text);
+}
+
+.compare__score {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 46px;
+  border-radius: var(--r-sm);
+  font: 800 19px/1 var(--font-num);
+  background: var(--surface-muted);
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.compare__score--yes {
+  background: var(--soft-green);
+  color: var(--yes-ink);
+}
+
+.compare__score--maybe {
+  background: var(--soft-amber);
+  color: var(--maybe-ink);
+}
+
+.compare__score--no {
+  background: var(--soft-red);
+  color: var(--no-ink);
+}
+
+.pick-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 52vh;
+  overflow-y: auto;
+  margin-bottom: 14px;
+}
+
+.pick-list__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 9px 8px;
+  border-radius: var(--r-sm);
+  text-align: left;
+  min-height: 60px;
+}
+
+.pick-list__item:hover:not(:disabled) {
+  background: var(--bg-tint);
+}
+
+.pick-list__item.is-on {
+  background: var(--primary-soft);
+}
+
+.pick-list__item:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.pick-list__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.pick-list__name {
+  font: 650 15px/1.25 var(--font);
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pick-list__trim {
+  font: 400 13px/1.2 var(--font);
+  color: var(--muted);
+}
+
+.pick-list__score {
+  font: 700 15px/1 var(--font-num);
+  color: var(--text-soft);
+}
+
+.pick-list__check {
+  width: 22px;
+  display: grid;
+  place-items: center;
+  color: var(--primary);
+}
+
+@media (min-width: 760px) {
+  .compare__table tbody th[scope='row'] {
+    width: 170px;
+    min-width: 170px;
+    font-size: 14px;
+  }
+  .compare__table {
+    /* Stop columns sprawling on a big screen */
+    min-width: 0;
+    max-width: calc(170px + var(--cols) * 190px);
+    margin: 0 auto;
+  }
+  .compare__car .car-thumb {
+    max-width: 170px;
+    margin: 0 auto;
+  }
+  .compare__car-name {
+    font-size: 15px;
+  }
+  .compare__table th,
+  .compare__table td {
+    padding: 13px 8px;
+  }
+  .compare__score {
+    min-height: 54px;
+    font-size: 22px;
+  }
+}
+
+/* ---- feature matrix ------------------------------------------------------ */
+
+.compare__table tbody tr.compare__section th {
+  position: static;
+  width: auto;
+  text-align: left;
+  padding: 22px 2px 8px;
+  background: var(--bg);
+  font: 800 15px/1.2 var(--font);
+  letter-spacing: -0.015em;
+  color: var(--text);
+  border-bottom: none;
+}
+
+.compare__has {
+  /* A dash means "not recorded" and should read quieter than a tick. */
+  font: 600 15px/1.2 var(--font);
+  color: var(--muted);
+}
+
+.compare__has.is-yes {
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--yes-ink);
+}
+
+.compare__custom td {
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+.compare__custom-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.compare__custom-chip {
+  display: inline-block;
+  max-width: 100%;
+  padding: 4px 8px;
+  border-radius: var(--r-pill);
+  background: var(--soft-green);
+  color: var(--yes-ink);
+  font: 600 11px/1.25 var(--font);
+  overflow-wrap: break-word;
+}

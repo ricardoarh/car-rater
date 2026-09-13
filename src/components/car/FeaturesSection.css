@@ -1,0 +1,220 @@
+/*
+ * Feature chips.
+ *
+ * Two columns on a phone rather than a tall checkbox list — nine options read
+ * as a glanceable grid this way. A chip grows taller when its label needs two
+ * lines; the text is never shrunk to fit.
+ */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.features__grid--custom {
+  margin-top: -2px;
+}
+
+.feature-chip {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  min-height: 48px;
+  padding: 9px 12px;
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--text-soft);
+  box-shadow: inset 0 0 0 1.5px var(--border);
+  font: 600 13.5px/1.25 var(--font);
+  letter-spacing: -0.008em;
+  text-align: left;
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    transform 110ms var(--ease);
+}
+
+.feature-chip:active {
+  transform: scale(0.98);
+}
+
+.feature-chip.is-on {
+  background: var(--yes-bg);
+  color: var(--yes-ink);
+  box-shadow: inset 0 0 0 1.5px var(--yes-border);
+  font-weight: 700;
+}
+
+/* The tick box keeps every label starting at the same x, selected or not */
+.feature-chip__tick {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 19px;
+  height: 19px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1.5px var(--border-strong);
+  color: var(--yes-ink);
+  background: var(--surface);
+}
+
+.feature-chip.is-on .feature-chip__tick {
+  background: var(--yes-bg-strong);
+  box-shadow: inset 0 0 0 1.5px var(--yes-ink);
+}
+
+.feature-chip__label {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.feature-chip:focus-visible {
+  outline: 2.5px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ---- custom chips: label renames, × removes ------------------------------ */
+
+.feature-chip--custom {
+  padding-right: 4px;
+  cursor: default;
+}
+
+.feature-chip__rename {
+  background: none;
+  border: none;
+  padding: 12px 0;
+  margin: -12px 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.feature-chip__rename:focus-visible,
+.feature-chip__remove:focus-visible {
+  outline: 2.5px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.feature-chip__remove {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 44px;
+  margin: -9px 0;
+  border-radius: var(--r-xs);
+  color: var(--yes-ink);
+  opacity: 0.72;
+}
+
+.feature-chip__remove:hover,
+.feature-chip__remove:active {
+  opacity: 1;
+  background: rgba(12, 81, 55, 0.1);
+}
+
+/* ---- add custom ---------------------------------------------------------- */
+
+.features__add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: var(--r-pill);
+  background: var(--surface-sunken);
+  color: var(--primary);
+  font: 650 14px/1 var(--font);
+  transition: background-color var(--dur) var(--ease);
+}
+
+.features__add:hover:not(:disabled) {
+  background: var(--primary-soft);
+}
+
+.features__add:disabled {
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.features__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 4px;
+}
+
+.features__form-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ---- read-only tags (Car Detail) ----------------------------------------- */
+
+.features__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 13px;
+  border-radius: var(--r-pill);
+  background: var(--yes-bg);
+  color: var(--yes-ink);
+  font: 650 13px/1.2 var(--font);
+  box-shadow: inset 0 0 0 1.5px var(--yes-border);
+}
+
+.feature-tag--custom {
+  background: var(--soft-green);
+}
+
+.features__empty {
+  font: var(--t-small);
+  font-style: italic;
+}
+
+/* Very narrow phones get one column rather than cramped two */
+@media (max-width: 339px) {
+  .features__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 620px) {
+  .features__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .feature-chip {
+    font-size: 14px;
+  }
+}
+
+/*
+ * A feature the car recorded before it was taken off the master checklist.
+ * Shown, because it is still true of the car — just quieter, since it is no
+ * longer something the user is actively tracking.
+ */
+.feature-tag--retired {
+  background: var(--bg-tint);
+  border-color: var(--border);
+  color: var(--muted);
+}

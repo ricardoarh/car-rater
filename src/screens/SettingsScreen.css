@@ -1,0 +1,171 @@
+.settings__head {
+  padding: calc(var(--safe-top) + 16px) 0 10px;
+}
+
+.settings__title {
+  font: var(--t-display);
+  font-size: 32px;
+  letter-spacing: -0.032em;
+}
+
+.settings__subtitle {
+  font: 400 15px/1.4 var(--font);
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+.settings__group {
+  background: var(--surface);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+  padding: 16px 15px;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings__group-title {
+  font: var(--t-h3);
+  font-weight: 700;
+  letter-spacing: -0.012em;
+}
+
+.settings__note {
+  font: var(--t-small);
+  color: var(--muted);
+  margin-top: -4px;
+}
+
+.settings__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings__facts > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.settings__facts > div:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.settings__facts dt {
+  font: var(--t-body);
+  color: var(--text-soft);
+}
+
+.settings__facts dd {
+  margin: 0;
+  font: 650 15px/1 var(--font);
+  color: var(--text);
+}
+
+.settings__group--danger {
+  background: var(--soft-red);
+  box-shadow: none;
+}
+
+.settings__group--danger .settings__group-title {
+  color: var(--no-ink);
+}
+
+.settings__restore {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.settings__restore-option {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  padding: 14px 15px;
+  border-radius: var(--r-sm);
+  background: var(--bg-tint);
+  transition: background-color var(--dur) var(--ease);
+}
+
+.settings__restore-option:hover {
+  background: var(--surface-muted);
+}
+
+.settings__restore-option strong {
+  font: 700 15.5px/1.2 var(--font);
+  color: var(--text);
+}
+
+.settings__restore-option span {
+  font: var(--t-small);
+  color: var(--muted);
+}
+
+.settings__restore-option--danger strong {
+  color: var(--no-ink);
+}
+
+.settings__footer {
+  margin-top: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.settings__footer p {
+  font: var(--t-small);
+  color: var(--text-soft);
+}
+
+@media (min-width: 620px) {
+  .settings__actions {
+    flex-direction: row;
+  }
+}
+
+/* A tappable row that leads somewhere, as opposed to one that does something. */
+.settings__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+  padding: 6px 0;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.settings__row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.settings__row-text strong {
+  font: 600 16px/1.3 var(--font);
+}
+
+.settings__row-text span {
+  font: var(--t-small);
+  color: var(--muted);
+}
+
+.settings__row svg {
+  flex-shrink: 0;
+  color: var(--muted-light);
+}
+
+.settings__row:active {
+  opacity: 0.6;
+}

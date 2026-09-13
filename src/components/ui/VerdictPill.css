@@ -1,0 +1,59 @@
+.verdict {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: var(--r-pill);
+  font: 700 13px/1 var(--font);
+  letter-spacing: 0.035em;
+  padding: 9px 16px;
+  min-width: 72px;
+  white-space: nowrap;
+}
+
+.verdict--sm {
+  font-size: 11px;
+  padding: 6px 11px;
+  min-width: 56px;
+}
+
+.verdict--yes {
+  background: var(--yes-bg);
+  color: var(--yes-ink);
+}
+
+.verdict--maybe {
+  background: var(--maybe-bg);
+  color: var(--maybe-ink);
+}
+
+.verdict--no {
+  background: var(--no-bg);
+  color: var(--no-ink);
+}
+
+.verdict--none {
+  background: var(--surface-sunken);
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.verdict__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muted-light);
+}
+
+.dealbreaker-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font: var(--t-tiny);
+  color: var(--no-ink);
+  background: var(--soft-red);
+  border-radius: var(--r-pill);
+  padding: 4px 9px;
+  line-height: 1;
+}

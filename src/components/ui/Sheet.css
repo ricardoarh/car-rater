@@ -1,0 +1,101 @@
+.sheet-root {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.sheet-scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  animation: fade-in 200ms var(--ease) both;
+}
+
+.sheet {
+  position: relative;
+  background: var(--surface);
+  width: 100%;
+  max-width: 520px;
+  max-height: 86vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px var(--gutter) calc(24px + var(--safe-bottom));
+  box-shadow: var(--shadow-lg);
+}
+
+.sheet--sheet {
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  animation: sheet-up 280ms var(--ease) both;
+}
+
+.sheet--dialog {
+  margin: auto;
+  border-radius: var(--r-lg);
+  max-width: 420px;
+  padding: 24px var(--gutter) 20px;
+  animation: dialog-in 220ms var(--ease) both;
+}
+
+.sheet-root:has(.sheet--dialog) {
+  align-items: center;
+  padding: 20px;
+}
+
+.sheet__grab {
+  width: 42px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border-strong);
+  margin: 2px auto 14px;
+}
+
+.sheet__title {
+  font: var(--t-h2);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.sheet__body {
+  font: var(--t-body);
+  color: var(--text-soft);
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet--sheet,
+  .sheet--dialog,
+  .sheet-scrim {
+    animation: none;
+  }
+}

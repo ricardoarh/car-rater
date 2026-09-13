@@ -1,0 +1,45 @@
+.car-thumb {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-muted);
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.car-thumb--rounded {
+  border-radius: var(--r-sm);
+}
+
+.car-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-thumb__placeholder {
+  color: var(--muted-light);
+  display: grid;
+  place-items: center;
+}
+
+.car-thumb--sm {
+  width: 52px;
+  height: 40px;
+}
+
+.car-thumb--md {
+  width: 78px;
+  height: 60px;
+}
+
+.car-thumb--lg {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-lg);
+}
+
+.car-thumb--fill {
+  width: 100%;
+  height: 100%;
+}

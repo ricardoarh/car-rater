@@ -1,0 +1,147 @@
+.my-cars__head {
+  padding: calc(var(--safe-top) + 16px) 0 4px;
+}
+
+.my-cars__title {
+  font: var(--t-display);
+  font-size: 32px;
+  letter-spacing: -0.032em;
+}
+
+.my-cars__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.my-cars__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font: 400 15px/1 var(--font);
+  color: var(--muted);
+  min-height: 44px;
+  padding-right: 6px;
+  text-align: left;
+}
+
+.my-cars__sort strong {
+  font-weight: 650;
+  color: var(--text);
+}
+
+.my-cars__sort-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -8px;
+  border-radius: var(--r-pill);
+  color: var(--text);
+}
+
+.my-cars__sort-icon:hover,
+.my-cars__sort-icon:active {
+  background: var(--surface-sunken);
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter {
+  flex: 1 1 auto;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: var(--r-pill);
+  background: var(--surface-sunken);
+  color: var(--text-soft);
+  font: 650 13px/1 var(--font);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.filter.is-on {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.filter--yes.is-on {
+  background: var(--yes-bg-strong);
+  color: var(--yes-ink);
+}
+
+.filter--maybe.is-on {
+  background: var(--maybe-bg-strong);
+  color: var(--maybe-ink);
+}
+
+.filter--no.is-on {
+  background: var(--no-bg-strong);
+  color: var(--no-ink);
+}
+
+.my-cars__list {
+  margin-top: 8px;
+}
+
+.my-cars__empty {
+  text-align: center;
+  padding: 46px 20px;
+}
+
+.my-cars__add {
+  margin-top: 22px;
+}
+
+.sort-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 4px;
+}
+
+.sort-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 50px;
+  padding: 0 14px;
+  border-radius: var(--r-sm);
+  font: 500 16px/1.3 var(--font);
+  color: var(--text);
+  text-align: left;
+}
+
+.sort-list__item:hover {
+  background: var(--bg-tint);
+}
+
+.sort-list__item.is-on {
+  background: var(--primary-soft);
+  color: var(--primary-ink);
+  font-weight: 700;
+}
+
+@media (min-width: 620px) {
+  .filter {
+    flex: 0 0 auto;
+    min-width: 88px;
+  }
+}
